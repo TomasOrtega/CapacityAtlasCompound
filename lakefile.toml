@@ -1,0 +1,20 @@
+name = "CapacityAtlasCompound"
+version = "0.1.0"
+defaultTargets = ["CapacityAtlasCompound", "capacity_compound_audit"]
+
+[leanOptions]
+autoImplicit = false
+
+[[lean_lib]]
+name = "CapacityAtlasCompound"
+
+[[lean_exe]]
+name = "capacity_compound_audit"
+root = "CapacityAtlasCompound.Audit"
+supportInterpreter = true
+
+[[require]]
+name = "CapacityAtlas"
+git = "https://github.com/TomasOrtega/CapacityAtlas.git"
+rev = "61a109e8cba1b8afa4b42c68afd96a3df71120d0"
+subDir = "lean"
