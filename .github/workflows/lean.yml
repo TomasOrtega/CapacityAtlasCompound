@@ -1,0 +1,19 @@
+name: Lean proof
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: leanprover/lean-action@50fcf42d2e460296f1a34b402e990d1b24f8b596
+        with:
+          auto-config: false
+          build: false
+          use-mathlib-cache: true
+      - run: lake --wfail build
+      - run: lake exe capacity_compound_audit
